@@ -1,13 +1,27 @@
 import Grid from '@material-ui/core/Grid';
 import PokeCard from "./PokeCard"
-function PokemonContainer({ pokeList })
+import Filter from './Filter';
+
+function PokemonContainer({ pokeList, filterInput, handleSearch })
 {
-    console.log(pokeList)
-    let pokeCards = pokeList.results.map((pokemon)=><PokeCard name={pokemon.name} url={pokemon.url}/>)
+
+   
+    let pokeCards = pokeList.results.map((pokemon)=>
+    <Grid item xs='6' sm='3'>
+    
+    <PokeCard id={pokeList.results.indexOf(pokemon)} name={pokemon.name} url={pokemon.url}/>
+   
+    </Grid>)
     return (
-        <Grid container spacing={2}>
+        <div>
+            <header>Pokemon Warriors</header>
+
+            <Filter handleSearch={handleSearch} filterInput={filterInput}/>
+
+        <Grid container spacing='3'>
             {pokeCards}
         </Grid>
+        </div>
     )
 }
 
