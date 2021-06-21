@@ -3,7 +3,7 @@ import PokeCard from "./PokeCard"
 function PokemonContainer({ pokeList })
 {
     console.log(pokeList)
-    let pokeCards = pokeList.results.map((pokemon)=><PokeCard pokemon={pokemon}/>)
+    let pokeCards = pokeList.results.map((pokemon)=><PokeCard name={pokemon.name} url={pokemon.url}/>)
     return (
         <Grid container spacing={2}>
             {pokeCards}
