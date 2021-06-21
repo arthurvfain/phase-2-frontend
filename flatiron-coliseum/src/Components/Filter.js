@@ -1,8 +1,10 @@
+import TextField from '@material-ui/core/TextField';
+
 function Filter({filterInput, handleSearch}) {
 
     return (
         <form>
-            <input type='text' value={filterInput} onChange={handleSearch} />
+            <TextField id="outlined-basic" label="PokéSearch" variant="outlined" value={filterInput} onChange={handleSearch} />
         </form>
     )
 }

@@ -11,7 +11,7 @@ function PokeCard({name, id}) {
      return (
         <Card>
         <p>{name}</p>
-        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id + 1}.png`} />
+        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id + 1}.png`} alt={name} />
         <br/>
         {toggled ? <button onClick={handleClick}> Return Home </button> : <button onClick={handleClick}> Send this Poke to Battle</button>
         }
