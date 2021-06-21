@@ -1,8 +1,17 @@
 import logo from '../logo.svg';
 import '../../src/App.css';
 import PokemonContainer from './PokemonContainer';
+import { useState, useEffect } from 'react'
 
-function App() {
+function App()
+{
+  const [pokeList, setPokeList] = useState([])
+
+  useEffect (()=>{
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=50").then(r=>r.json()).then(data=>setPokeList(data)).then(console.log(pokeList))
+  },[])
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -16,7 +25,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         ></a>
-          <PokemonContainer/>
+          {/* <PokemonContainer pokeList={pokeList}/> */}
         
       </header>
     </div>
