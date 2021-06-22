@@ -1,7 +1,7 @@
 import Grid from '@material-ui/core/Grid';
 import WarriorCard from './WarriorCard';
 
-function Warriors({warriors, setWarriors, pokeList})
+function Warriors({warriors, setWarriors})
 {
     let warriorCards = warriors.map((pokemon)=> 
 
