@@ -5,7 +5,7 @@ function PokeCard({name, id}) {
 
     const [toggled, setToggled] = useState(false)
 
-    function handleClick()
+    function handleClick(e)
     {setToggled(toggled => !toggled)}
 
      return (
