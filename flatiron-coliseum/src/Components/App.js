@@ -3,6 +3,7 @@ import '../App.css';
 import PokemonContainer from './PokemonContainer';
 import { useState, useEffect } from 'react'
 import BattleField from './BattleField';
+import {BrowserRouter as Router} from "react-router-dom"
 import { Route, Switch } from 'react-router-dom'
 import Header from './Header';
 import Warriors from "./Warriors";
@@ -33,7 +34,7 @@ function App()
       <Header />
       <Warriors warriors={warriors} pokeList={pokeList}/>
       <Switch>
-          <Route path='/BattleField' component={() => <BattleField warriors={warriors} setWarriors={setWarriors}/>}/>
+          <Route path='/BattleField' component={() =><Router><BattleField warriors={warriors} setWarriors={setWarriors}/></Router>}/>
           <Route path='/PokemonContainer' component={()=> <PokemonContainer pokeList={pokeList} selectWarrior={selectWarrior}/>} />
           <Route exactPath='/' component={Home}/>
       </Switch>

@@ -1,10 +1,9 @@
 import {Card} from '@material-ui/core'
-function BattlerCard ({name, id}) {
-
+function BattlerCard ({name, id, position}) {
     return (
         <Card>
         <p>{name}</p>
-        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${id}.png`} alt={name} />
+        <img src={position === 0 ?`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${id}.png`:`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt={name} />
         <br/>
         </Card>
     )
