@@ -3,7 +3,7 @@ import PokeCard from "./PokeCard"
 import Filter from './Filter';
 import { useState } from "react"
 
-function PokemonContainer({ pokeList })
+function PokemonContainer({ pokeList, setWarriors })
 {
     const [filterInput, setFilterInput] = useState("")
 
@@ -14,7 +14,7 @@ function PokemonContainer({ pokeList })
     
     let pokeCards = filterList.map((pokemon)=>
     <Grid item xs={6} sm={3} key={pokemon.name}>
-        <PokeCard id={pokeList.results.indexOf(pokemon)} name={pokemon.name} url={pokemon.url} />
+        <PokeCard id={pokeList.results.indexOf(pokemon)} name={pokemon.name} url={pokemon.url} setWarriors={setWarriors}/>
     </Grid>)
     
     return (

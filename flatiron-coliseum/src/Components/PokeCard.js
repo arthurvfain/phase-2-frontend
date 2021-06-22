@@ -1,12 +1,15 @@
 import {Card} from '@material-ui/core'
 import {useState} from 'react'
 
-function PokeCard({name, id}) {
+function PokeCard({name, id, setWarriors}) {
 
     const [toggled, setToggled] = useState(false)
 
     function handleClick(e)
-    {setToggled(toggled => !toggled)}
+    {
+        setToggled(toggled => !toggled)
+        setWarriors()
+    }
 
      return (
         <Card>
@@ -17,7 +20,6 @@ function PokeCard({name, id}) {
         }
         </Card>
     )
-// }
 }
 
 export default PokeCard;
