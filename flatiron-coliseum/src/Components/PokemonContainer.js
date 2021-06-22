@@ -14,7 +14,7 @@ function PokemonContainer({ pokeList, selectWarrior })
     
     let pokeCards = filterList.map((pokemon)=>
     <Grid item xs={6} sm={3} key={pokemon.name}>
-        <PokeCard id={pokeList.results.indexOf(pokemon)} name={pokemon.name} selectWarrior={selectWarrior}/>
+        <PokeCard id={parseFloat(pokemon.url.slice(34))} name={pokemon.name} selectWarrior={selectWarrior}/>
     </Grid>)
     
     return (
