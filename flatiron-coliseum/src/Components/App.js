@@ -17,6 +17,14 @@ function App()
   },[])
 
 
+  function selectWarrior (name) {
+    let selectedWarrior = pokeList.results.filter(element => element.name === name)
+    let warriorList = [...warriors, selectedWarrior]
+    setWarriors(warriorList)
+    console.log(warriors)
+
+  }
+
   while (pokeList.length === 0) 
   {
     return <img src='https://wallpaperaccess.com/full/215986.jpg' alt="splash screen" />
@@ -24,10 +32,10 @@ function App()
   return (
     <div className="App">
       <Header />
-      <Warriors warriors={warriors}/>
+      <Warriors warriors={warriors} pokeList={pokeList}/>
       <Switch>
           <Route path='/BattleField' component={() => <BattleField />}/>
-          <Route path='/PokemonContainer' component={()=> <PokemonContainer pokeList={pokeList} setWarriors={setWarriors}/>} />
+          <Route path='/PokemonContainer' component={()=> <PokemonContainer pokeList={pokeList} selectWarrior={selectWarrior}/>} />
       </Switch>
     </div>
   );

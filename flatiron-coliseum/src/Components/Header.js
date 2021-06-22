@@ -11,6 +11,7 @@ function Header () {
                 
                 <NavLink to='/PokemonContainer' exact>Choose Your Warriors</NavLink>
             </nav>
+            <hr/>
         </header>
         
         )
