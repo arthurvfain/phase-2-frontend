@@ -55,7 +55,8 @@ function BattleField({ warriors, setWarriors, removeWarriors }) {
         <div>
             <h1>BattleField</h1>
             
-            <Link onClick={battle} to='/Fight' exact>Get Ready !</Link>
+            {warriors.length >= 2 ? <Link onClick={battle} to='/Fight' >Get Ready !</Link> : ''}
+
             <Switch>
                 <Route path="/Fight" component={()=><Fight contestants={twoBattlers} setWinner={setWinner}/>}/>
                 <Route path="/Victory" component={()=><Victory winner={winner}/>}/>

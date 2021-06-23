@@ -8,7 +8,9 @@ function Header () {
             
             <nav>
                 <NavLink to='/BattleField' exact>To BattleField</NavLink>
-                
+                <br/>
+                <NavLink to='/HallOfFame' exact>To Hall Of Fame!</NavLink>
+                <br/>
                 <NavLink to='/PokemonContainer' exact>Choose Your Warriors</NavLink>
             </nav>
             <hr/>

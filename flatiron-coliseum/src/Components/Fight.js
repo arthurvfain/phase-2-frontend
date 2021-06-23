@@ -31,7 +31,7 @@ function Fight({contestants, winner, setWinner})
                 {displayBattle(contestants)}
             </Grid>
             {/* <button >Fight!</button> */}
-            <Link onClick={theBattle} to='/Victory' exact>Fight !</Link>
+            <Link onClick={theBattle} to='/Victory' >Fight !</Link>
         </div>
     )
 }

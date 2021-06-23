@@ -8,6 +8,7 @@ import { Route, Switch } from 'react-router-dom'
 import Header from './Header';
 import Warriors from "./Warriors";
 import Home from "./Home"
+import HallOfFame from './HallOfFame';
 
 function App()
 {
@@ -44,6 +45,7 @@ function returnHome(name) {
       <Switch>
           <Route path='/BattleField' component={() =><Router><BattleField warriors={warriors} setWarriors={setWarriors} /></Router>}/>
           <Route path='/PokemonContainer' component={()=> <PokemonContainer pokeList={pokeList} warriors={warriors} selectWarrior={selectWarrior}/>} />
+          <Route path='/HallOfFame' component={() => <HallOfFame />} />
           <Route exactPath='/' component={Home}/>
       </Switch>
     </div>
