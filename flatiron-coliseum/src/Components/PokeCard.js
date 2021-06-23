@@ -8,7 +8,7 @@ function PokeCard({name, id, selectWarrior}) {
     function handleClick(e)
     {
         setToggled(toggled => !toggled)
-        selectWarrior(name)
+        selectWarrior(name, e)
     }
 
      return (

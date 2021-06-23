@@ -1,12 +1,12 @@
 import React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Route, Switch, Link } from 'react-router-dom'
 import {Grid} from '@material-ui/core'
 import BattlerCard from "./BattlerCard"
 import Fight from "./Fight"
 import Victory from "./Victory"
 
-function BattleField({ warriors, setWarriors }) {
+function BattleField({ warriors, setWarriors, removeWarriors }) {
 
     const [twoBattlers, setTwoBattlers] = useState([])
 
@@ -15,17 +15,22 @@ let battlers = []
     function battle(e)
     {   
         battlers = (warriors.splice(0,2))
-        // removeWarriors(battlers)
         setTwoBattlers(battlers)
-        // displayBattle(battlers)
         console.log(battlers)
     } 
 
-// function removeWarriors(battlers){
-//     let removed = warriors.filter(element=>element.name !== battlers[0].name|| element.name !== battlers[1].name)
-//     setWarriors(removed)
-    
-// }
+    // attempt to use UseEffect to solve the Warriors Card display issue
+    // useEffect (()=>{
+    //     if (twoBattlers.length >= 2)
+    //     {
+    //     console.log('hi')
+    //     removeWarriors(twoBattlers)}} ,[twoBattlers])
+
+    //     function removeWarriors(battlers){
+    //         let removed = warriors.filter(element=>element.name !== battlers[0].name|| element.name !== battlers[1].name)
+    //         setWarriors(removed)
+    //       }
+    // }
 
 function displayBattle(battlers)
 {
@@ -46,7 +51,6 @@ function displayBattle(battlers)
                 <Route path="/Fight" component={()=><Fight contestants={displayBattle(twoBattlers)}/>}/>
                 <Route path="/Victory" component={()=><Victory />}/>
             </Switch>
-            {/* {twoBattlers.length >= 2 ?  : <h1>Upcoming Battle</h1> } */}
         </div>
     )
 }

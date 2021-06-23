@@ -19,11 +19,19 @@ function App()
   },[])
 
 
-  function selectWarrior (name) {
+  function selectWarrior (name, e) {
     let selectedWarrior = pokeList.results.filter(element => element.name === name)
     let warriorList = [...warriors, selectedWarrior[0]]
+
+    // let removedFromCollection = pokeList.results.filter(element=>element.name !== name)
+    // setPokeList(removedFromCollection)
     setWarriors(warriorList)
   }
+
+function returnHome(name) {
+      let removed = warriors.filter(element=>element.name !== name)
+      setWarriors(removed)
+}
 
   while (pokeList.length === 0) 
   {
@@ -32,10 +40,10 @@ function App()
   return (
     <div className="App">
       <Header />
-      <Warriors warriors={warriors} pokeList={pokeList}/>
+      <Warriors warriors={warriors} pokeList={pokeList} returnHome={returnHome}/>
       <Switch>
-          <Route path='/BattleField' component={() =><Router><BattleField warriors={warriors} setWarriors={setWarriors}/></Router>}/>
-          <Route path='/PokemonContainer' component={()=> <PokemonContainer pokeList={pokeList} selectWarrior={selectWarrior}/>} />
+          <Route path='/BattleField' component={() =><Router><BattleField warriors={warriors} setWarriors={setWarriors} /></Router>}/>
+          <Route path='/PokemonContainer' component={()=> <PokemonContainer pokeList={pokeList} warriors={warriors} selectWarrior={selectWarrior}/>} />
           <Route exactPath='/' component={Home}/>
       </Switch>
     </div>
