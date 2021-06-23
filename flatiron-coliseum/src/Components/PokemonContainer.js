@@ -15,7 +15,7 @@ function PokemonContainer({ pokeList, warriors, selectWarrior })
 
     let filterList = pokeList.results.filter(element => element.name.toLowerCase().includes(filterInput.toLowerCase())) 
     // let warriorFilter = filterList.filter(element => element.name !== warriors[0].name)
-    console.log(filterList)
+    // console.log(filterList)
     let pokeCards = filterList.map((pokemon)=>
     <Grid item xs={6} sm={3} key={pokemon.name}>
         <PokeCard id={parseFloat(pokemon.url.slice(34))} name={pokemon.name} selectWarrior={selectWarrior}/>
