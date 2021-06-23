@@ -3,6 +3,8 @@ import WarriorCard from './WarriorCard';
 
 function Warriors({warriors, returnHome})
 {
+    
+    
     let warriorCards = warriors.map((pokemon)=> 
 
     <Grid item xs={6} sm={3} key={pokemon.name}>

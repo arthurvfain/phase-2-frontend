@@ -41,7 +41,7 @@ function returnHome(name) {
   return (
     <div className="App">
       <Header />
-      <Warriors warriors={warriors} pokeList={pokeList} returnHome={returnHome}/>
+      <Warriors warriorList={warriorList} pokeList={pokeList} returnHome={returnHome}/>
       <Switch>
           <Route path='/BattleField' component={() =><Router><BattleField warriors={warriors} setWarriors={setWarriors} /></Router>}/>
           <Route path='/PokemonContainer' component={()=> <PokemonContainer pokeList={pokeList} warriors={warriors} selectWarrior={selectWarrior}/>} />

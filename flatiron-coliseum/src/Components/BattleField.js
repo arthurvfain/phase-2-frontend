@@ -9,15 +9,17 @@ import Victory from "./Victory"
 function BattleField({ warriors, setWarriors, removeWarriors }) {
 
     const [twoBattlers, setTwoBattlers] = useState([])
-    const [winner, setWinner] = useState()
+    const [winner, setWinner] = useState(null)
 
 
     let battlers = []
 
-    function battle(e)
+    function battle()
     {   
         battlers = (warriors.splice(0,2))
         setTwoBattlers(battlers)
+        let remaining = warriors.filter(element=>element.name !== battlers[0].name|| element.name !== battlers[1].name)
+        setWarriors(remaining)
         //console.log(battlers)
     } 
 
