@@ -13,36 +13,24 @@ import HallOfFame from './HallOfFame';
 function App()
 {
   const[pokemon, setPokemon] = useState({battlers:[],warriors:[],pokeList:[], winner:[]})
-  
-  //const [pokeList, setPokeList] = useState([])
-  //const [warriors, setWarriors] = useState([])
-  
+
   useEffect (()=>{
     fetch("https://pokeapi.co/api/v2/pokemon?limit=150").then(r=>r.json()).then(data=>setPokemon({battlers:[],warriors:[],pokeList: data.results}))
   },[])
-
-
-  //console.log(pokemon.pokeList)
 
   function selectWarrior (name) {
     let selectedWarrior = pokemon.pokeList.filter(element => element.name === name)
     let warriorList = [...pokemon.warriors, selectedWarrior[0]]
     let removedFromCollection = pokemon.pokeList.filter(element=>element.name !== name)
     setPokemon({battlers:[],warriors:[...warriorList],pokeList:[...removedFromCollection]})
-    // setPokeList(removedFromCollection)
   }
 
-function returnHome(name) {
+  function returnHome(name) {
       let remaining = pokemon.warriors.filter(element=>element.name !== name)
       let removedCard = pokemon.warriors.filter(element=>  element.name === name)
-      //write a filter function that will add the removed pokemon back to pokelist
       setPokemon({battlers:[],warriors:[...remaining],pokeList:[...pokemon.pokeList, removedCard[0]]})
-      //setWarriors(removed)
-}
+  }
 
-// function reRenderWarriors () {
-//   setWarriors([])
-// }
 
   while (pokemon.pokeList.length === 0) 
   {

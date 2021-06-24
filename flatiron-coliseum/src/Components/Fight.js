@@ -1,5 +1,6 @@
 import { Grid } from "@material-ui/core";
 import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 import BattlerCard from "./BattlerCard"
 
 function Fight({contestants, warriors, pokeList, setPokemon})
@@ -20,13 +21,10 @@ function Fight({contestants, warriors, pokeList, setPokemon})
         let random = Math.random()
         if (random > .5)
         {
-            // setWinner(contestants[0])
             setPokemon({battlers: [], warriors:[...warriors],pokeList:[...pokeList, ...contestants], winner: [contestants[0]]})
         } else {
-            // setWinner(contestants[1])
             setPokemon({battlers: [], warriors:[...warriors],pokeList:[...pokeList, ...contestants], winner: [contestants[1]]})
         }
-        // setPokemon({battlers: [], warriors:[...warriors],pokeList:[...pokeList, contestants], winner: [contestants[1]]})
     }
 
     return (
@@ -34,8 +32,7 @@ function Fight({contestants, warriors, pokeList, setPokemon})
             <Grid container spacing={2}>
                 {displayBattle(contestants)}
             </Grid>
-            {/* <button >Fight!</button> */}
-            <Link onClick={theBattle} to='/Victory' >Fight !</Link>
+            <Button component={Link} onClick={theBattle} to='/Victory' variant="contained" color="primary"  >Fight !</Button>
         </div>
     )
 }

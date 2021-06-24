@@ -18,36 +18,35 @@ function HallOfFame() {
     let winners = []
     
     simpleWinners.forEach(element=>{
-        console.log(element)
-        if (winners.includes(element) === false)
+
+        if (!winners.some(winner=>winner.name === element.name))
         {
             winners.push(element)
         }
     })
+
     
+    //previousWinners.reduce(mergeWinners, winners)
+    
+    //simpleWinners.filter(element=>winners.some(winner=>winner.name === element.name))
     //console.log(simpleWinners)
     //console.log(winners)
-    // function mergeWinners()
-    // {
 
-    // }
         
-    // previousWinners.reduce(mergeWinners, winners)
 
-        let display = previousWinners.map(element => 
-                <Grid item xs={6} sm={3}>
-                    <BattlerCard id={parseFloat(element.url.slice(34))} name={element.name} />
-                </Grid>)
-        //console.log(previousWinners)
+    let display = winners.map(element => 
+            <Grid key={element.name} item xs={6} sm={3}>
+                <BattlerCard id={parseFloat(element.url.slice(34))} name={element.name} />
+            </Grid>)
 
-        return (
-            <div>
-            <h1>Below is your Hall of fame!</h1>
-            <Grid container spacing={3}>
-                {display}
-            </Grid>
-            </div>
-        )
+    return (
+        <div>
+        <h1>Below is your Hall of fame!</h1>
+        <Grid container spacing={3}>
+            {display}
+        </Grid>
+        </div>
+    )
 }
 
 export default HallOfFame
