@@ -1,5 +1,4 @@
 import {useState, useEffect} from 'react'
-import {Card} from '@material-ui/core'
 import Grid from '@material-ui/core/Grid';
 import BattlerCard from './BattlerCard';
 

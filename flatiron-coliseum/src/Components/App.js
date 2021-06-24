@@ -12,43 +12,48 @@ import HallOfFame from './HallOfFame';
 
 function App()
 {
-  const [pokeList, setPokeList] = useState([])
-  const [warriors, setWarriors] = useState([])
+  const[pokemon, setPokemon] = useState({battlers:[],warriors:[],pokeList:[]})
+  
+  //const [pokeList, setPokeList] = useState([])
+  //const [warriors, setWarriors] = useState([])
   
   useEffect (()=>{
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=150").then(r=>r.json()).then(data=>setPokeList(data))
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=150").then(r=>r.json()).then(data=>setPokemon({battlers:[],warriors:[],pokeList: data.results}))
   },[])
 
 
+  //console.log(pokemon.pokeList)
+
   function selectWarrior (name) {
-    let selectedWarrior = pokeList.results.filter(element => element.name === name)
-    let warriorList = [...warriors, selectedWarrior[0]]
-    
-    // let removedFromCollection = pokeList.results.filter(element=>element.name !== name)
+    let selectedWarrior = pokemon.pokeList.filter(element => element.name === name)
+    let warriorList = [...pokemon.warriors, selectedWarrior[0]]
+    let removedFromCollection = pokemon.pokeList.filter(element=>element.name !== name)
+    setPokemon({battlers:[],warriors:[...warriorList],pokeList:[...removedFromCollection]})
     // setPokeList(removedFromCollection)
-    setWarriors(warriorList)
   }
 
 function returnHome(name) {
-      let removed = warriors.filter(element=>element.name !== name)
-      setWarriors(removed)
+      let removed = pokemon.warriors.filter(element=>element.name !== name)
+      //write a filter function that will add the removed pokemon back to pokelist
+      setPokemon({battlers:[],warriors:[...removed],pokeList:[...pokemon.pokeList]})
+      //setWarriors(removed)
 }
 
-function reRenderWarriors () {
-  setWarriors([])
-}
+// function reRenderWarriors () {
+//   setWarriors([])
+// }
 
-  while (pokeList.length === 0) 
+  while (pokemon.pokeList.length === 0) 
   {
     return <img src='https://wallpaperaccess.com/full/215986.jpg' width="600" height="500" alt="splash screen" />
   }
   return (
     <div className="App">
-      <Header reRenderWarriors={reRenderWarriors}/>
-      <Warriors warriors={warriors} pokeList={pokeList} returnHome={returnHome} />
+      <Header />
+      <Warriors warriors={pokemon.warriors} pokeList={pokemon.pokeList} returnHome={returnHome} />
       <Switch>
-          <Route path='/BattleField' component={() =><Router><BattleField warriors={warriors} setWarriors={setWarriors} /></Router>}/>
-          <Route path='/PokemonContainer' component={()=> <PokemonContainer pokeList={pokeList} warriors={warriors} selectWarrior={selectWarrior}/>} />
+          <Route path='/BattleField' component={() =><Router><BattleField battlers={pokemon.battlers} warriors={pokemon.warriors} pokeList={pokemon.pokeList} setPokemon={setPokemon} /></Router>}/>
+          <Route path='/PokemonContainer' component={()=> <PokemonContainer pokeList={pokemon.pokeList} warriors={pokemon.warriors} selectWarrior={selectWarrior}/>} />
           <Route path='/HallOfFame' component={() => <HallOfFame />} />
           <Route exactPath='/' component={Home}/>
       </Switch>

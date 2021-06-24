@@ -3,8 +3,10 @@ import PokeCard from "./PokeCard"
 import Filter from './Filter';
 import { useState } from "react"
 
-function PokemonContainer({ pokeList, warriors, selectWarrior })
+function PokemonContainer({ pokeList, selectWarrior })
 {
+    //console.log(pokeList)
+
     const [filterInput, setFilterInput] = useState("")
 
     function handleSearch (e) {
@@ -13,7 +15,7 @@ function PokemonContainer({ pokeList, warriors, selectWarrior })
 
 
 
-    let filterList = pokeList.results.filter(element => element.name.toLowerCase().includes(filterInput.toLowerCase())) 
+    let filterList = pokeList.filter(element => element.name.toLowerCase().includes(filterInput.toLowerCase())) 
     // let warriorFilter = filterList.filter(element => element.name !== warriors[0].name)
     // console.log(filterList)
     let pokeCards = filterList.map((pokemon)=>

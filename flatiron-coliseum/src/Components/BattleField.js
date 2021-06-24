@@ -6,20 +6,21 @@ import { Route, Switch, Link } from 'react-router-dom'
 import Fight from "./Fight"
 import Victory from "./Victory"
 
-function BattleField({ warriors, setWarriors, removeWarriors }) {
+function BattleField({battlers, warriors, pokeList, setPokemon}) {
 
-    const [twoBattlers, setTwoBattlers] = useState([])
+    //const [twoBattlers, setTwoBattlers] = useState([])
     const [winner, setWinner] = useState(null)
 
 
-    let battlers = []
+    let battlerz = []
 
-    function battle(e)
+    function battle()
     {   
-        battlers = (warriors.splice(0,2))
-        e.target.parentElement.previousSibling.firstChild.nextSibling.firstChild.nextSibling.remove()
-        e.target.parentElement.previousSibling.firstChild.nextSibling.firstChild.remove()
-        setTwoBattlers(battlers)
+        battlerz = (warriors.splice(0,2))
+        // e.target.parentElement.previousSibling.firstChild.nextSibling.firstChild.nextSibling.remove()
+        // e.target.parentElement.previousSibling.firstChild.nextSibling.firstChild.remove()
+        //setPokemon(battlers)
+        setPokemon({battlers: battlerz, warriors:[...warriors],pokeList:[...pokeList]})
         // let remaining = warriors.filter(element=>element.name !== battlers[0].name|| element.name !== battlers[1].name)
         // setWarriors(remaining)
         //console.log(battlers)
@@ -62,7 +63,7 @@ function BattleField({ warriors, setWarriors, removeWarriors }) {
             {warriors.length >= 2 ? <Link onClick={battle} to='/Fight' >Get Ready !</Link> : ''}
 
             <Switch>
-                <Route path="/Fight" component={()=><Fight contestants={twoBattlers} setWinner={setWinner}/>}/>
+                <Route path="/Fight" component={()=><Fight contestants={battlers} setWinner={setWinner}/>}/>
                 <Route path="/Victory" component={()=><Victory winner={winner}/>}/>
             </Switch>
         </div>

@@ -2,8 +2,9 @@ import { Grid } from "@material-ui/core";
 import { Link } from 'react-router-dom';
 import BattlerCard from "./BattlerCard"
 
-function Fight({contestants, winner, setWinner})
+function Fight({contestants, setWinner})
 {
+    console.log(contestants)
     function displayBattle(battlers)
     {
         let twoCards = battlers.map(battler => 
