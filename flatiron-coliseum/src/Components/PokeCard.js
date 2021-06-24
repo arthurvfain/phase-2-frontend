@@ -1,25 +1,25 @@
 import {Card} from '@material-ui/core'
 import {useState} from 'react'
-
+import Chip from '@material-ui/core/Chip';
+import Avatar from '@material-ui/core/Avatar';
 
 function PokeCard({name, id, selectWarrior}) {
 
 
-    const [toggled, setToggled] = useState(false)
 
     function handleClick(e)
     {
-        setToggled(toggled => !toggled)
         selectWarrior(name)
     }
 
      return (
-        <Card>
+        <Card >
+        
         <p>{name}</p>
         <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt={name} />
         <br/>
-        {toggled ? <button onClick={handleClick}> Return Home </button> : <button onClick={handleClick}> Send this Poke to Battle</button>
-        }
+        <Chip onClick={handleClick} label="Send Poke to Battle" clickable color="primary" avatar={<Avatar alt="poke" src="https://pngimg.com/uploads/pokeball/pokeball_PNG8.png" />}/>
+ 
         </Card>
     )
 }
