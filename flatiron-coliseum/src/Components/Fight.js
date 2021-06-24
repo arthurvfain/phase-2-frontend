@@ -2,7 +2,7 @@ import { Grid } from "@material-ui/core";
 import { Link } from 'react-router-dom';
 import BattlerCard from "./BattlerCard"
 
-function Fight({contestants, setWinner})
+function Fight({contestants, warriors, pokeList, setPokemon})
 {
     console.log(contestants)
     function displayBattle(battlers)
@@ -20,10 +20,13 @@ function Fight({contestants, setWinner})
         let random = Math.random()
         if (random > .5)
         {
-            setWinner(contestants[0])
+            // setWinner(contestants[0])
+            setPokemon({battlers: [], warriors:[...warriors],pokeList:[...pokeList, ...contestants], winner: [contestants[0]]})
         } else {
-            setWinner(contestants[1])
+            // setWinner(contestants[1])
+            setPokemon({battlers: [], warriors:[...warriors],pokeList:[...pokeList, ...contestants], winner: [contestants[1]]})
         }
+        // setPokemon({battlers: [], warriors:[...warriors],pokeList:[...pokeList, contestants], winner: [contestants[1]]})
     }
 
     return (

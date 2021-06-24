@@ -6,10 +6,10 @@ import { Route, Switch, Link } from 'react-router-dom'
 import Fight from "./Fight"
 import Victory from "./Victory"
 
-function BattleField({battlers, warriors, pokeList, setPokemon}) {
+function BattleField({battlers, warriors, pokeList, setPokemon, winner}) {
 
     //const [twoBattlers, setTwoBattlers] = useState([])
-    const [winner, setWinner] = useState(null)
+    // const [winner, setWinner] = useState(null)
 
 
     let battlerz = []
@@ -63,8 +63,8 @@ function BattleField({battlers, warriors, pokeList, setPokemon}) {
             {warriors.length >= 2 ? <Link onClick={battle} to='/Fight' >Get Ready !</Link> : ''}
 
             <Switch>
-                <Route path="/Fight" component={()=><Fight contestants={battlers} setWinner={setWinner}/>}/>
-                <Route path="/Victory" component={()=><Victory winner={winner}/>}/>
+                <Route path="/Fight" component={()=><Fight contestants={battlers} pokeList={pokeList} warriors={warriors} setPokemon={setPokemon}/>}/>
+                <Route path="/Victory" component={()=><Victory winner={winner[0]}/>}/>
             </Switch>
         </div>
     )

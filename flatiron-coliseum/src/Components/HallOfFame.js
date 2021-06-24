@@ -41,9 +41,12 @@ function HallOfFame() {
         //console.log(previousWinners)
 
         return (
+            <div>
+            <h1>Below is your Hall of fame!</h1>
             <Grid container spacing={3}>
                 {display}
             </Grid>
+            </div>
         )
 }
 

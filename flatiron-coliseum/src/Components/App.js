@@ -12,7 +12,7 @@ import HallOfFame from './HallOfFame';
 
 function App()
 {
-  const[pokemon, setPokemon] = useState({battlers:[],warriors:[],pokeList:[]})
+  const[pokemon, setPokemon] = useState({battlers:[],warriors:[],pokeList:[], winner:[]})
   
   //const [pokeList, setPokeList] = useState([])
   //const [warriors, setWarriors] = useState([])
@@ -33,9 +33,10 @@ function App()
   }
 
 function returnHome(name) {
-      let removed = pokemon.warriors.filter(element=>element.name !== name)
+      let remaining = pokemon.warriors.filter(element=>element.name !== name)
+      let removedCard = pokemon.warriors.filter(element=>  element.name === name)
       //write a filter function that will add the removed pokemon back to pokelist
-      setPokemon({battlers:[],warriors:[...removed],pokeList:[...pokemon.pokeList]})
+      setPokemon({battlers:[],warriors:[...remaining],pokeList:[...pokemon.pokeList, removedCard[0]]})
       //setWarriors(removed)
 }
 
@@ -52,7 +53,7 @@ function returnHome(name) {
       <Header />
       <Warriors warriors={pokemon.warriors} pokeList={pokemon.pokeList} returnHome={returnHome} />
       <Switch>
-          <Route path='/BattleField' component={() =><Router><BattleField battlers={pokemon.battlers} warriors={pokemon.warriors} pokeList={pokemon.pokeList} setPokemon={setPokemon} /></Router>}/>
+          <Route path='/BattleField' component={() =><Router><BattleField winner={pokemon.winner} battlers={pokemon.battlers} warriors={pokemon.warriors} pokeList={pokemon.pokeList} setPokemon={setPokemon} /></Router>}/>
           <Route path='/PokemonContainer' component={()=> <PokemonContainer pokeList={pokemon.pokeList} warriors={pokemon.warriors} selectWarrior={selectWarrior}/>} />
           <Route path='/HallOfFame' component={() => <HallOfFame />} />
           <Route exactPath='/' component={Home}/>
