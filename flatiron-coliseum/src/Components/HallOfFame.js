@@ -21,11 +21,37 @@ function HallOfFame() {
 
         if (!winners.some(winner=>winner.name === element.name))
         {
-            winners.push(element)
+            winners.push({...element, wins: 1})
+        } else {
+            winners.find(({name}) => name === element.name ).wins++
+        }
+   
+    })
+
+   let sortedWinners = winners.sort((a,b) => {
+        if (a.wins < b.wins) {
+            return 1
+        }
+        if (a.wins > b.wins) {
+            return -1
+        } else {
+            return 0
         }
     })
 
-    
+    console.log(sortedWinners)
+
+    // simpleWinners.reduce((accumulator, element) => {
+
+    // winners.forEach( winner => {
+    //     if (element.name === winner.name) {
+    //         console.log('hello')
+    //         console.log(accumulator + 1)
+    //     }
+    //     else {
+    //         console.log('no')
+    //     }})
+    // }, 0)
     //previousWinners.reduce(mergeWinners, winners)
     
     //simpleWinners.filter(element=>winners.some(winner=>winner.name === element.name))
@@ -34,9 +60,9 @@ function HallOfFame() {
 
         
 
-    let display = winners.map(element => 
+    let display = sortedWinners.map(element => 
             <Grid key={element.name} item xs={6} sm={3}>
-                <BattlerCard id={parseFloat(element.url.slice(34))} name={element.name} />
+                <BattlerCard id={parseFloat(element.url.slice(34))} name={element.name} wins={element.wins}/>
             </Grid>)
 
     return (

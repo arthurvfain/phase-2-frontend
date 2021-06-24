@@ -2,8 +2,6 @@ import {Card} from '@material-ui/core'
 
 function WarriorCard({name, id, returnHome}) {
 
- 
-
     function handleClick(e)
     {
         returnHome(name)

@@ -1,7 +1,9 @@
 import {Card} from '@material-ui/core'
 import {useState} from 'react'
 
+
 function PokeCard({name, id, selectWarrior}) {
+
 
     const [toggled, setToggled] = useState(false)
 
