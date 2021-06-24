@@ -5,7 +5,6 @@ import BattlerCard from "./BattlerCard"
 
 function Fight({contestants, warriors, pokeList, setPokemon})
 {
-    console.log(contestants)
     function displayBattle(battlers)
     {
         let twoCards = battlers.map(battler => 

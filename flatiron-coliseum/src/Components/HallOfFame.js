@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import Grid from '@material-ui/core/Grid';
-import BattlerCard from './BattlerCard';
+import HallOfFameCard from './HallOfFameCard';
 
 function HallOfFame() {
 
@@ -39,7 +39,7 @@ function HallOfFame() {
         }
     })
 
-    console.log(sortedWinners)
+    //console.log(sortedWinners)
 
     // simpleWinners.reduce((accumulator, element) => {
 
@@ -62,13 +62,13 @@ function HallOfFame() {
 
     let display = sortedWinners.map(element => 
             <Grid key={element.name} item xs={6} sm={3}>
-                <BattlerCard id={parseFloat(element.url.slice(34))} name={element.name} wins={element.wins}/>
+                <HallOfFameCard id={parseFloat(element.url.slice(34))} name={element.name} wins={element.wins}/>
             </Grid>)
 
     return (
-        <div>
-        <h1>Below is your Hall of fame!</h1>
-        <Grid container spacing={3}>
+        <div style={{backgroundImage: `url("https://cdn2.bulbagarden.net/upload/8/8b/Hall_of_Fame_PO.png")`}}>
+        <h1>Hall of Fame!</h1>
+        <Grid container spacing={10}>
             {display}
         </Grid>
         </div>

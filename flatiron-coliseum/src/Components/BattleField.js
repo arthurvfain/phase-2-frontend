@@ -33,11 +33,9 @@ function BattleField({battlers, warriors, pokeList, setPokemon, winner}) {
     return (
         <div>
             <h1>BattleField</h1>
-            
-            {warriors.length >= 2 ? <Button component={Link} onClick={battle} to='/Fight' variant="contained" color="primary">Get Ready !</Button> : ''}
-
+            {warriors.length >= 2 ? <Button component={Link} onClick={battle} to="/Fight" variant="contained" color="primary">Get Ready !</Button> : ''}
             <Switch>
-                <Route path="/Fight" component={()=><Fight contestants={battlers} pokeList={pokeList} warriors={warriors} setPokemon={setPokemon}/>}/>
+                <Route path="/Fight" component={()=><Fight contestants={battlers} pokeList={pokeList} warriors={warriors} setPokemon={setPokemon} />}/>
                 <Route path="/Victory" component={()=><Victory winner={winner[0]}/>}/>
             </Switch>
         </div>
