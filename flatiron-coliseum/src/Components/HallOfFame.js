@@ -39,34 +39,13 @@ function HallOfFame() {
         }
     })
 
-    //console.log(sortedWinners)
-
-    // simpleWinners.reduce((accumulator, element) => {
-
-    // winners.forEach( winner => {
-    //     if (element.name === winner.name) {
-    //         console.log('hello')
-    //         console.log(accumulator + 1)
-    //     }
-    //     else {
-    //         console.log('no')
-    //     }})
-    // }, 0)
-    //previousWinners.reduce(mergeWinners, winners)
-    
-    //simpleWinners.filter(element=>winners.some(winner=>winner.name === element.name))
-    //console.log(simpleWinners)
-    //console.log(winners)
-
-        
-
     let display = sortedWinners.map(element => 
             <Grid key={element.name} item xs={6} sm={3}>
                 <HallOfFameCard id={parseFloat(element.url.slice(34))} name={element.name} wins={element.wins}/>
             </Grid>)
 
     return (
-        <div style={{backgroundImage: `url("https://cdn2.bulbagarden.net/upload/8/8b/Hall_of_Fame_PO.png")`}}>
+        <div style={{backgroundImage: `url("https://cdn2.bulbagarden.net/upload/8/8b/Hall_of_Fame_PO.png")`, backgroundSize: `100%`, backgroundAttachment: 'fixed'}}>
         <h1>Hall of Fame!</h1>
         <Grid container spacing={10}>
             {display}

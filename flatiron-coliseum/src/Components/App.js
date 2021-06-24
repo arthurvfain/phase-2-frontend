@@ -9,12 +9,6 @@ import Home from "./Home"
 
 function App()
 {
-
-// while (pokemon.pokeList.length === 0) 
-// {
-//   return <img src='https://wallpaperaccess.com/full/215986.jpg' width="600" height="500" alt="splash screen" />
-// }
-
   return (
     <div className="App">
       <Header />
@@ -25,7 +19,6 @@ function App()
       </Switch>
     </div>
   );
-
 }
 
 export default App;

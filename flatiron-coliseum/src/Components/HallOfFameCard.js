@@ -1,7 +1,7 @@
 import {Card} from '@material-ui/core'
 function HallOfFameCard ({name, id, position, wins}) {
     return (
-        <Card>
+        <Card variant="outlined">
         <p>{name}</p>
         <img src={position === 0 ?`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${id}.png`:`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt={name} />
         <br/>
