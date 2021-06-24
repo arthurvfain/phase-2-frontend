@@ -20,10 +20,10 @@ function App()
   },[])
 
 
-  function selectWarrior (name, e) {
+  function selectWarrior (name) {
     let selectedWarrior = pokeList.results.filter(element => element.name === name)
     let warriorList = [...warriors, selectedWarrior[0]]
-
+    
     // let removedFromCollection = pokeList.results.filter(element=>element.name !== name)
     // setPokeList(removedFromCollection)
     setWarriors(warriorList)
@@ -34,14 +34,18 @@ function returnHome(name) {
       setWarriors(removed)
 }
 
+function reRenderWarriors () {
+  setWarriors([])
+}
+
   while (pokeList.length === 0) 
   {
     return <img src='https://wallpaperaccess.com/full/215986.jpg' width="600" height="500" alt="splash screen" />
   }
   return (
     <div className="App">
-      <Header />
-      <Warriors warriorList={warriorList} pokeList={pokeList} returnHome={returnHome}/>
+      <Header reRenderWarriors={reRenderWarriors}/>
+      <Warriors warriors={warriors} pokeList={pokeList} returnHome={returnHome} />
       <Switch>
           <Route path='/BattleField' component={() =><Router><BattleField warriors={warriors} setWarriors={setWarriors} /></Router>}/>
           <Route path='/PokemonContainer' component={()=> <PokemonContainer pokeList={pokeList} warriors={warriors} selectWarrior={selectWarrior}/>} />

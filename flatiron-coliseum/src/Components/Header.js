@@ -1,7 +1,7 @@
 
 import { NavLink } from "react-router-dom";
 
-function Header () {
+function Header ({reRenderWarriors}) {
     return(    
         <header> 
             <h1>Flatiron Coliseum</h1>
@@ -11,7 +11,7 @@ function Header () {
                 <br/>
                 <NavLink to='/HallOfFame' exact>To Hall Of Fame!</NavLink>
                 <br/>
-                <NavLink to='/PokemonContainer' exact>Choose Your Warriors</NavLink>
+                <NavLink to='/PokemonContainer' exact onClick={reRenderWarriors}>Choose Your Warriors</NavLink>
             </nav>
             <hr/>
         </header>

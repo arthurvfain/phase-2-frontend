@@ -14,12 +14,14 @@ function BattleField({ warriors, setWarriors, removeWarriors }) {
 
     let battlers = []
 
-    function battle()
+    function battle(e)
     {   
         battlers = (warriors.splice(0,2))
+        e.target.parentElement.previousSibling.firstChild.nextSibling.firstChild.nextSibling.remove()
+        e.target.parentElement.previousSibling.firstChild.nextSibling.firstChild.remove()
         setTwoBattlers(battlers)
-        let remaining = warriors.filter(element=>element.name !== battlers[0].name|| element.name !== battlers[1].name)
-        setWarriors(remaining)
+        // let remaining = warriors.filter(element=>element.name !== battlers[0].name|| element.name !== battlers[1].name)
+        // setWarriors(remaining)
         //console.log(battlers)
     } 
 
