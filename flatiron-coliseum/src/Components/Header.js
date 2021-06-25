@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 function Header () {
     return(    
         <header> 
-            <h1>Flatiron Coliseum</h1>
+            <img src='https://fontmeme.com/permalink/210624/f76e565b296fd522a525e1f734845036.png'/>
             
             <nav>
                 <Button component={NavLink} to='/Coliseum' exact variant="contained" color="primary">To Coliseum!</Button>
