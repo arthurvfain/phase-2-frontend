@@ -32,7 +32,7 @@ function BattleField({battlers, warriors, pokeList, setPokemon, winner}) {
     
     return (
         <div>
-            <h1 style={{fontFamily:'Copperplate'}}>BattleField</h1>
+            <h1 style={{fontFamily:'Cinzel'}}>BattleField</h1>
             {warriors.length >= 2 ? <Button component={Link} onClick={battle} to="/Fight" variant="contained" color="primary">Get Ready !</Button> : ''}
             <Switch>
                 <Route path="/Fight" component={()=><Fight contestants={battlers} pokeList={pokeList} warriors={warriors} setPokemon={setPokemon} />}/>

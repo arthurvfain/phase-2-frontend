@@ -11,18 +11,18 @@ function PokemonContainer({ pokeList, selectWarrior })
         setFilterInput(e.target.value)
     }
 
-    let filterList = pokeList.filter(element => element.name.toLowerCase().includes(filterInput.toLowerCase())) 
+    let filterList = pokeList.filter(element => element.name.toLowerCase().includes(filterInput.toLowerCase()))  
     let pokeCards = filterList.map((pokemon)=>
-    <Grid item xs={6} sm={3} key={pokemon.name}>
+    <Grid  item xs={6} sm={3} key={pokemon.name}>
         <PokeCard id={parseFloat(pokemon.url.slice(34))} name={pokemon.name} selectWarrior={selectWarrior}/>
     </Grid>)
     
     return (
-        <div style={{margin: '20px'}}>
-            <h1 style={{fontFamily:'Copperplate'}}>Pokemon Warriors</h1>
+        <div style={{backgroundImage: 'url(https://pics.freeartbackgrounds.com/Desert_Sand_Texture-1203.jpg)', backgroundSize: `100%`, backgroundAttachment: 'fixed'}}>
+            <h1 style={{fontFamily:'Cinzel'}}>Pokemon Warriors</h1>
             <Filter handleSearch={handleSearch} filterInput={filterInput}/>
             <hr/>
-            <Grid container spacing={8}>
+            <Grid container spacing={11}>
                 {pokeCards}
             </Grid>
         </div>

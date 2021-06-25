@@ -4,7 +4,7 @@ function Filter({filterInput, handleSearch}) {
 
     return (
         <form>
-            <TextField id="outlined-basic" label="PokéSearch" variant="outlined" value={filterInput} onChange={handleSearch} />
+            <TextField style={{backgroundColor: 'white'}} id="outlined-basic" label="PokéSearch"  value={filterInput} onChange={handleSearch} />
         </form>
     )
 }

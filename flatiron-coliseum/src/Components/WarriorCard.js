@@ -11,7 +11,7 @@ function WarriorCard({name, id, returnHome}) {
 
      return (
         <Card>
-        <h3 style={{fontFamily:'Copperplate'}}>{name.toUpperCase()}</h3>
+        <h3 style={{fontFamily:'Cinzel'}}>{name.toUpperCase()}</h3>
         <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt={name} />
         <br/>
         <Chip onClick={handleClick} label="Return Home" clickable color="primary" avatar={<Avatar alt="poke" src="https://pngimg.com/uploads/pokeball/pokeball_PNG8.png" />} />

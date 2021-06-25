@@ -35,7 +35,7 @@ function Coliseum()
     }
     
     return (
-        <div>
+        <div style={{backgroundImage: 'url(https://pics.freeartbackgrounds.com/Desert_Sand_Texture-1203.jpg)', backgroundSize: `100%`, backgroundAttachment: 'fixed', height: '100vh'}}>
             <nav>
                 <Chip component={NavLink} to='/BattleField' exact label="To BattleField" clickable color="primary" avatar={<Avatar alt="poke" src="https://jenessa-reika.ca/wp-content/uploads/2020/04/pokemon4.png" />}/>
                 <Chip component={NavLink} to='/PokemonContainer' exact label="Choose Your Warriors" clickable color="primary" avatar={<Avatar alt="poke" src="https://jenessa-reika.ca/wp-content/uploads/2020/04/pokemon2.png" />}/>
