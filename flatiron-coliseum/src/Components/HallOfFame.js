@@ -45,8 +45,8 @@ function HallOfFame() {
             </Grid>)
 
     return (
-        <div style={{backgroundImage: `url("https://cdn2.bulbagarden.net/upload/8/8b/Hall_of_Fame_PO.png")`, backgroundSize: `100%`, backgroundAttachment: 'fixed'}}>
-        <h1>Hall of Fame!</h1>
+        <div style={{backgroundImage: `url("https://cdn2.bulbagarden.net/upload/8/8b/Hall_of_Fame_PO.png")`, backgroundSize: `100%`, backgroundAttachment: 'fixed', backgroundPositionY: `65%`}}>
+        <h1 style={{fontFamily:'Copperplate'}}>Hall of Fame!</h1>
         <Grid container spacing={10}>
             {display}
         </Grid>

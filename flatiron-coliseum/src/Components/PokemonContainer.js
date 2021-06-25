@@ -19,7 +19,7 @@ function PokemonContainer({ pokeList, selectWarrior })
     
     return (
         <div style={{margin: '20px'}}>
-            <h1>Pokemon Warriors</h1>
+            <h1 style={{fontFamily:'Copperplate'}}>Pokemon Warriors</h1>
             <Filter handleSearch={handleSearch} filterInput={filterInput}/>
             <hr/>
             <Grid container spacing={8}>

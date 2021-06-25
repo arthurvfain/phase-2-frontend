@@ -12,7 +12,7 @@ function Warriors({warriors, returnHome})
     )
     return (
         <div>
-            {warriors.length % 2 === 0 && warriors.length !== 0 ? <h4>Time for Battle!</h4> : <h4> Choose Warriors</h4>}
+            {warriors.length % 2 === 0 && warriors.length !== 0 ? <h4 style={{fontFamily:'Copperplate'}}>Ready for Battle!</h4> : <h4 style={{fontFamily:'Copperplate'}}> Choose More Warriors</h4>}
             <Grid container spacing={3}>
                 {warriorCards}
             </Grid>

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import BattleField from './BattleField';
 import PokemonContainer from './PokemonContainer';
 import Warriors from './Warriors';
-import Button from '@material-ui/core/Button';
+import { Chip, Avatar } from '@material-ui/core';
 
 function Coliseum()
 {
@@ -37,8 +37,8 @@ function Coliseum()
     return (
         <div>
             <nav>
-                <Button component={NavLink} to='/BattleField' exact variant="contained" color="primary">To BattleField</Button>
-                <Button component={NavLink} to='/PokemonContainer' exact variant="contained" color="primary">Choose Your Warriors</Button>
+                <Chip component={NavLink} to='/BattleField' exact label="To BattleField" clickable color="primary" avatar={<Avatar alt="poke" src="https://jenessa-reika.ca/wp-content/uploads/2020/04/pokemon4.png" />}/>
+                <Chip component={NavLink} to='/PokemonContainer' exact label="Choose Your Warriors" clickable color="primary" avatar={<Avatar alt="poke" src="https://jenessa-reika.ca/wp-content/uploads/2020/04/pokemon2.png" />}/>
             </nav>
             <Warriors warriors={pokemon.warriors} pokeList={pokemon.pokeList} returnHome={returnHome} />
             <Switch>
