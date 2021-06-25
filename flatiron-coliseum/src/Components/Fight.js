@@ -2,13 +2,14 @@ import { Grid } from "@material-ui/core";
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import BattlerCard from "./BattlerCard"
+import { Chip, Avatar } from '@material-ui/core';
 
 function Fight({contestants, warriors, pokeList, setPokemon})
 {
     function displayBattle(battlers)
     {
         let twoCards = battlers.map(battler => 
-            <Grid item xs={12} sm={6} key={battler.name}>
+            <Grid item xs={6} sm={3} key={battler.name}>
                 <BattlerCard name={battler.name} id={parseFloat(battler.url.slice(34))} position={battlers.indexOf(battler)} />
             </Grid>
         )
@@ -28,10 +29,10 @@ function Fight({contestants, warriors, pokeList, setPokemon})
 
     return (
         <div>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} justify= 'center'>
                 {displayBattle(contestants)}
             </Grid>
-            <Button component={Link} onClick={theBattle} to='/Victory' variant="contained" color="primary"  >Fight !</Button>
+            <Chip component={Link} onClick={theBattle} to='/Victory' exact label="Fight!" clickable color="primary" avatar={<Avatar alt="poke" src="https://jenessa-reika.ca/wp-content/uploads/2020/04/pokemon2.png" />}/>
         </div>
     )
 }
